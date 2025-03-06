@@ -2,13 +2,12 @@ package com.hit.hit.repositories;
 
 import com.hit.hit.model.Product;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-
-@ResponseBody
+@Repository
 public class ProductRepository {
 
     private final JdbcTemplate jdbc;

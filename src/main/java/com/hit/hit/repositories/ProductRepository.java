@@ -25,9 +25,9 @@ public class ProductRepository {
         RowMapper<Product> productRowMapper = (r, i) -> {
             Product rowObject = new Product();
             rowObject.setId(r.getInt("id"));
-            rowObject.setProductName(r.getString("name"));
-            rowObject.setMinStock(r.getInt("min_stock"));
-            rowObject.setCurrentStock(r.getInt("current_stock"));
+            rowObject.setProductName(r.getString("productName"));
+            rowObject.setMinStock(r.getInt("minStock"));
+            rowObject.setCurrentStock(r.getInt("currentStock"));
             return rowObject;
 
         };

@@ -12,8 +12,8 @@ public class Product {
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
 
-    public String getName() {return productName;}
-    public void setName(String productName) {this.productName = productName;}
+    public String getProductName() {return productName;}
+    public void setProductName(String productName) {this.productName = productName;}
 
     public int getMinStock() {return minStock;}
     public void setMinStock(int minStock) {this.minStock = minStock;}

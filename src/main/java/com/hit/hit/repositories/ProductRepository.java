@@ -44,8 +44,16 @@ public class ProductRepository {
     }
 
     //update
+    public int updateProduct(Product product) {
+        String sql = "UPDATE product set id = ?, productName = ?, minStock = ?, currentStock = ? where id = ?";
+        return jdbc.update(sql, product.getProductName(), product.getMinStock(), product.getCurrentStock(), product.getId());
+    }
 
     //delete
+    public int deleteProductById(int productId) {
+        String sql = "DELETE FROM product WHERE id = ?";
+        return jdbc.update(sql, productId);
+    }
 
 
 }

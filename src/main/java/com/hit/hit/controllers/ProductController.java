@@ -4,11 +4,7 @@ import com.hit.hit.model.Product;
 import com.hit.hit.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -40,12 +36,26 @@ public class ProductController {
         return "product.html";
     }
 
-    @GetMapping("/editProduct")
-    public String editProduct(Model model) {
-        var product = productRepository.findProductById(1);
+    @GetMapping("/editProduct/{id}")
+    public String editProduct(Model model,@PathVariable int id) {
+        var product = productRepository.findProductById(id);
         model.addAttribute("product", product);
         return "editProduct.html";
     }
+
+    @PutMapping("/product")
+    public String updateProduct(Model model, @RequestBody Product product) {
+        var updatedProduct = productRepository.updateProduct(product);
+        model.addAttribute("product", updatedProduct);
+        return "editProduct.html";
+    }
+
+    @DeleteMapping("/product/{id}")
+    public String deleteProduct(Model model,@PathVariable int id) {
+        var deletedProduct = productRepository.deleteProductById(id);
+        return "home.html";
+    }
+
 
 
 

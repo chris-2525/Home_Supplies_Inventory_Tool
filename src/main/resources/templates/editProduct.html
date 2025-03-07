@@ -22,30 +22,5 @@
         </ul>
     </div>
 </nav>
-
 <body>
-<h1>Household Inventory</h1>
-
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Min. Stock</th>
-        <th scope="col">Current Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="p: ${products}" >
-        <td th:text="${p.productName}"></td>
-        <td th:text="${p.minStock}"></td>
-        <td th:text="${p.currentStock}"></td>
-        <td <a href="/editProduct" class="btn" role="button" data-bs-toggle="button">Edit</a> </td>
-        <td <button type="button" class="btn btn-outline-danger">Delete</button></td>
-
-
-    </tr>
-    </tbody>
-</table>
-
-</body>
-</html>
+<h1>Edit</h1>

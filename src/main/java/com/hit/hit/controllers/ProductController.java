@@ -35,5 +35,10 @@ public class ProductController {
         return "product.html";
     }
 
+    @GetMapping("/editProduct")
+    public String editProduct() {
+        return "editProduct.html";
+    }
+
 
 }

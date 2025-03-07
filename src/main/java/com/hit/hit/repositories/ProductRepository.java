@@ -1,6 +1,7 @@
 package com.hit.hit.repositories;
 
 import com.hit.hit.model.Product;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,6 +36,16 @@ public class ProductRepository {
         return jdbc.query(sql, productRowMapper);
 
     }
+
+    //find product by id
+    public Product findProductById(int productId) {
+        String sql = "SELECT * FROM product WHERE id = ?";
+        return jdbc.queryForObject(sql, BeanPropertyRowMapper.newInstance(Product.class), productId);
+    }
+
+    //update
+
+    //delete
 
 
 }

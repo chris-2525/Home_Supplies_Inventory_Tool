@@ -28,6 +28,11 @@ public class ProductController {
 //    @PostMapping
 //    public void storeProduct(@RequestBody Product product) {productRepository.storeProduct(product);}
 
+    @GetMapping("/")
+    public String home() {
+        return "home.html";
+    }
+
     @GetMapping("/showProducts")
     public String viewProducts(Model model) {
         var products = productRepository.findAllProducts();
@@ -36,9 +41,12 @@ public class ProductController {
     }
 
     @GetMapping("/editProduct")
-    public String editProduct() {
+    public String editProduct(Model model) {
+        var product = productRepository.findProductById(1);
+        model.addAttribute("product", product);
         return "editProduct.html";
     }
+
 
 
 }

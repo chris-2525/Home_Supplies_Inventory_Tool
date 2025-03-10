@@ -37,16 +37,19 @@
                 <th scope="col" style="text-align: center">Name</th>
                 <th scope="col" style="text-align: center">Min. Stock</th>
                 <th scope="col" style="text-align: center">Current Stock</th>
+                <th scope="col" style="text-align: center"> </th>
+                <th scope="col" style="text-align: center"> </th>
+
             </tr>
             </thead>
             <tbody>
-            <tr th:each="p: ${products}" style="text-align: center">
-                <td th:text="${p.productName}"></td>
-                <td th:text="${p.minStock}"></td>
-                <td th:text="${p.currentStock}"></td>
-                <td><a th:href="@{/editProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Edit</a></td>
-                <td><a th:href="@{/deleteProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Delete</a></td>
-            </tr>
+                <tr th:each="p: ${products}" style="text-align: center">
+                    <td th:text="${p.productName}"></td>
+                    <td th:text="${p.minStock}"></td>
+                    <td th:text="${p.currentStock}"></td>
+                    <td><a th:href="@{/editProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Edit</a></td>
+                    <td><a th:href="@{/deleteProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Delete</a></td>
+                </tr>
             </tbody>
         </table>
 

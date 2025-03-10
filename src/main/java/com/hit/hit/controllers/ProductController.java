@@ -50,6 +50,23 @@ public class ProductController {
         return "home.html";
     }
 
+    @GetMapping("/addProduct")
+    public String addProduct(Model model) {
+        model.addAttribute("product", new Product());
+        return "addProduct.html";
+    }
+
+    @PostMapping("/addProduct")
+    public String addProduct(@ModelAttribute Product product, Model model) {
+
+        model.addAttribute("product", product);
+        productRepository.storeProduct(product);
+
+        return "home.html";
+    }
+
+
+
 //    @GetMapping("/deleteProduct/{id}")
 //    public String deleteProduct(Model model,@PathVariable int id) {
 //        var deletedProduct = productRepository.deleteProductById(id);

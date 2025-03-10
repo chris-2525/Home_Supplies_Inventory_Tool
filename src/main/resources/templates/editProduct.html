@@ -24,18 +24,52 @@
 </nav>
 
 <body>
-    <h1>Edit</h1>
-    <form th:action="@{/editProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
-        <label for="productName">Product Name:</label>
-        <input type="text" id="productName" th:field="*{productName}" required />
 
-        <label for="minStock">Minimum Stock:</label>
-        <input type="number" id="minStock" th:field="*{minStock}" required />
+    <div class="container-md">
 
-        <label for="currentStock">Current Stock:</label>
-        <input type="number" id="currentStock" th:field="*{currentStock}" required />
+        <h1 style="text-align: center">Edit Product</h1>
+        <br>
+        <form th:action="@{/editProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
 
-        <button type="submit">Update Product</button>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" th:field="*{productName}" required />
 
-    </form>
+                </div>
+                <div class="col-sm">
+                    <label for="minStock">Minimum Stock:</label>
+                    <input type="number" id="minStock" th:field="*{minStock}" required />
+                </div>
+                <div class="col-sm">
+                    <label for="currentStock">Current Stock:</label>
+                    <input type="number" id="currentStock" th:field="*{currentStock}" required />
+                </div>
+            </div>
+            <br>
+
+            <div class="buttonDiv" style="text-align: center">
+
+
+                <button type="submit" class="btn btn-primary">Update</button>
+
+            </div>
+
+        </form>
+
+    </div>
+<!--    <h1>Edit</h1>-->
+<!--    <form th:action="@{/editProduct/{id}(id=${product.id})}" th:object="${product}" method="post">-->
+<!--        <label for="productName">Product Name:</label>-->
+<!--        <input type="text" id="productName" th:field="*{productName}" required />-->
+
+<!--        <label for="minStock">Minimum Stock:</label>-->
+<!--        <input type="number" id="minStock" th:field="*{minStock}" required />-->
+
+<!--        <label for="currentStock">Current Stock:</label>-->
+<!--        <input type="number" id="currentStock" th:field="*{currentStock}" required />-->
+
+<!--        <button type="submit">Update Product</button>-->
+
+<!--    </form>-->
 

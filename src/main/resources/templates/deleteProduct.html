@@ -24,18 +24,40 @@
 </nav>
 
 <body>
-<h1>Delete</h1>
-<form th:action="@{/deleteProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
-    <label for="productName">Product Name:</label>
-    <input type="text" id="productName" th:field="*{productName}" readonly />
 
-    <label for="minStock">Minimum Stock:</label>
-    <input type="number" id="minStock" th:field="*{minStock}" readonly />
 
-    <label for="currentStock">Current Stock:</label>
-    <input type="number" id="currentStock" th:field="*{currentStock}" readonly />
+    <div class="container-md">
 
-    <button type="submit">Delete Product</button>
+        <h1 style="text-align: center">Delete Product</h1>
+        <br>
+        <form th:action="@{/deleteProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
 
-</form>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" th:field="*{productName}" disabled />
+
+                </div>
+                <div class="col-sm">
+                    <label for="minStock">Minimum Stock:</label>
+                    <input type="number" id="minStock" th:field="*{minStock}" disabled />
+                </div>
+                <div class="col-sm">
+                    <label for="currentStock">Current Stock:</label>
+                    <input type="number" id="currentStock" th:field="*{currentStock}" disabled />
+                </div>
+            </div>
+            <br>
+
+            <div class="buttonDiv" style="text-align: center">
+
+
+                <button type="submit" class="btn btn-danger">Delete</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
 

@@ -18,12 +18,6 @@ public class ProductController {
 
     public ProductController(ProductRepository productRepository) {this.productRepository = productRepository;}
 
-//    @GetMapping
-//    public List<Product> findProducts() {return productRepository.findAllProducts();}
-
-//    @PostMapping
-//    public void storeProduct(@RequestBody Product product) {productRepository.storeProduct(product);}
-
     @GetMapping("/")
     public String home() {
         return "home.html";
@@ -43,17 +37,30 @@ public class ProductController {
         return "editProduct.html";
     }
 
-    @PutMapping("/product")
-    public String updateProduct(Model model, @RequestBody Product product) {
-        var updatedProduct = productRepository.updateProduct(product);
-        model.addAttribute("product", updatedProduct);
-        return "editProduct.html";
+    @PostMapping("/editProduct/{id}")
+    public String updateProduct(@PathVariable int id, @ModelAttribute Product product) {
+        var existingProduct = productRepository.findProductById(id);
+
+        existingProduct.setProductName(product.getProductName());
+        existingProduct.setMinStock(product.getMinStock());
+        existingProduct.setCurrentStock(product.getCurrentStock());
+
+        productRepository.updateProduct(existingProduct);
+
+        return "home.html";
     }
+
+//    @GetMapping("/deleteProduct/{id}")
+//    public String deleteProduct(Model model,@PathVariable int id) {
+//        var deletedProduct = productRepository.deleteProductById(id);
+//        model.addAttribute("product", deletedProduct);
+//        return "product.html";
+//    }
 
     @DeleteMapping("/deleteProduct/{id}")
     public String deleteProduct(Model model,@PathVariable int id) {
-        var deletedProduct = productRepository.deleteProductById(id);
-        return "home.html";
+        productRepository.deleteProductById(id);
+        return "redirect:/products";
     }
 
 

@@ -22,26 +22,19 @@
         </ul>
     </div>
 </nav>
+
 <body>
-<h1>Edit</h1>
+    <h1>Edit</h1>
+    <form th:action="@{/editProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" th:field="*{productName}" required />
 
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Min. Stock</th>
-        <th scope="col">Current Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="p: ${product}" >
-        <td th:text="${p.productName}"></td>
-        <td th:text="${p.minStock}"></td>
-        <td th:text="${p.currentStock}"></td>
-        <a href="/editProduct" class="btn" role="button" data-bs-toggle="button">Edit</a>
-        <td <button type="button" class="btn btn-outline-danger">Delete</button></td>
+        <label for="minStock">Minimum Stock:</label>
+        <input type="number" id="minStock" th:field="*{minStock}" required />
 
+        <label for="currentStock">Current Stock:</label>
+        <input type="number" id="currentStock" th:field="*{currentStock}" required />
 
-    </tr>
-    </tbody>
-</table>
+        <button type="submit">Update Product</button>
+    </form>
+

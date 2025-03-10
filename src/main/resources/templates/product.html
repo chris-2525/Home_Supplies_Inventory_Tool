@@ -40,6 +40,8 @@
             <td th:text="${p.minStock}"></td>
             <td th:text="${p.currentStock}"></td>
             <td><a th:href="@{/editProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Edit</a></td>
+<!--            <td><a th:href="@{/deleteProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Delete</a></td>-->
+
         </tr>
         </tbody>
     </table>

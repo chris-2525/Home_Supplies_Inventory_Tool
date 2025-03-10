@@ -45,7 +45,7 @@ public class ProductRepository {
 
     //update
     public int updateProduct(Product product) {
-        String sql = "UPDATE product set id = ?, productName = ?, minStock = ?, currentStock = ? where id = ?";
+        String sql = "UPDATE product SET productName = ?, minStock = ?, currentStock = ? where id = ?";
         return jdbc.update(sql, product.getProductName(), product.getMinStock(), product.getCurrentStock(), product.getId());
     }
 

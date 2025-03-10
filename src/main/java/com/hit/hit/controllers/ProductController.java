@@ -47,7 +47,7 @@ public class ProductController {
 
         productRepository.updateProduct(existingProduct);
 
-        return "home.html";
+        return "redirect:/showProducts";
     }
 
     @GetMapping("/addProduct")
@@ -62,25 +62,24 @@ public class ProductController {
         model.addAttribute("product", product);
         productRepository.storeProduct(product);
 
-        return "home.html";
+        return "redirect:/showProducts";
     }
 
-
-
-//    @GetMapping("/deleteProduct/{id}")
-//    public String deleteProduct(Model model,@PathVariable int id) {
-//        var deletedProduct = productRepository.deleteProductById(id);
-//        model.addAttribute("product", deletedProduct);
-//        return "product.html";
-//    }
-
-    @DeleteMapping("/deleteProduct/{id}")
-    public String deleteProduct(Model model,@PathVariable int id) {
-        productRepository.deleteProductById(id);
-        return "redirect:/products";
+    @GetMapping("/deleteProduct/{id}")
+    public String deleteProduct(Model model, @PathVariable int id) {
+        var product = productRepository.findProductById(id);
+        model.addAttribute("product", product);
+        return "deleteProduct.html";
     }
 
-
-
+    @PostMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable int id, @ModelAttribute Product product) {
+        var findProduct = productRepository.findProductById(id);
+        if(findProduct != null) {
+            productRepository.deleteProductById(id);
+            System.out.println("Deleted product");
+        }
+        return "redirect:/showProducts";
+    }
 
 }

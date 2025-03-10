@@ -24,28 +24,18 @@
 </nav>
 
 <body>
-<h1>Household Inventory</h1>
-<a class="btn btn-primary" href="/addProduct" role="button">Add Product</a>
+<h1>Delete</h1>
+<form th:action="@{/deleteProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" th:field="*{productName}" readonly />
 
+    <label for="minStock">Minimum Stock:</label>
+    <input type="number" id="minStock" th:field="*{minStock}" readonly />
 
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Min. Stock</th>
-            <th scope="col">Current Stock</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="p: ${products}" >
-            <td th:text="${p.productName}"></td>
-            <td th:text="${p.minStock}"></td>
-            <td th:text="${p.currentStock}"></td>
-            <td><a th:href="@{/editProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Edit</a></td>
-            <td><a th:href="@{/deleteProduct/{id}(id=${p.id})}" class="btn" role="button" data-bs-toggle="button">Delete</a></td>
-        </tr>
-        </tbody>
-    </table>
+    <label for="currentStock">Current Stock:</label>
+    <input type="number" id="currentStock" th:field="*{currentStock}" readonly />
 
-</body>
-</html>
+    <button type="submit">Delete Product</button>
+
+</form>
+

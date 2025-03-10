@@ -50,7 +50,7 @@ public class ProductController {
         return "editProduct.html";
     }
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public String deleteProduct(Model model,@PathVariable int id) {
         var deletedProduct = productRepository.deleteProductById(id);
         return "home.html";

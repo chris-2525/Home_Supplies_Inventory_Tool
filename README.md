@@ -1,4 +1,4 @@
-# 🏠 Home Inventory Tool
+# 🏠 Home Supplies Inventory Tool
 
 A simple yet powerful web-based tool to manage and track your home inventory. Built using Java and Spring Boot MVC, this application helps users organize items, record details, and stay on top of what's in their home.
 

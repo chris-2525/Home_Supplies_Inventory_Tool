@@ -11,7 +11,7 @@ A simple yet powerful web-based tool to manage and track your home inventory. Bu
 - Responsive web interface (Thymeleaf + Bootstrap)
 - RESTful architecture using Spring MVC
 - Persistent storage using relational database
-- 
+
 ---
 
 ## 🛠️ Tech Stack
